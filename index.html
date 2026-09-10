@@ -23,59 +23,16 @@
     <h1>AI Арқылы Бизнесті Дамыту</h1>
     <p>Кеңес алу үшін атыңыз бен телефоныңызды қалдырыңыз:</p>
 
-    <form id="tgForm">
+    <form action="https://formspree.io/f/xeaqneyo" method="POST">
       <div class="form-group">
-        <input type="text" id="userName" placeholder="Сіздің атыңыз" required>
+        <input type="text" name="Name" placeholder="Сіздің атыңыз" required>
       </div>
       <div class="form-group">
-        <input type="tel" id="userPhone" placeholder="Телефон нөміріңіз" required>
+        <input type="tel" name="Phone" placeholder="Телефон нөміріңіз" required>
       </div>
-      <button type="submit" id="submitBtn">Өтінім жіберу</button>
+      <button type="submit">Өтінім жіберу</button>
     </form>
   </div>
-
-  <script>
-    document.getElementById('tgForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const btn = document.getElementById('submitBtn');
-      btn.innerText = 'Жіберілуде...';
-      btn.disabled = true;
-
-      const name = document.getElementById('userName').value;
-      const phone = document.getElementById('userPhone').value;
-      
-      // Сіздің жаңа токеніңіз орнатылды
-      const token = '8696946789:AAF2-DSJ-GxDBq0D2dpghq5x4jdfI5qxQDM';
-      const chatId = '515087783';
-      
-      const text = `🔔 **Жаңа өтінім!**\n\n👤 **Аты:** ${name}\n📞 **Телефон:** ${phone}`;
-
-      try {
-        const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: text,
-            parse_mode: 'Markdown'
-          })
-        });
-
-        if (response.ok) {
-          alert('Өтінішіңіз сәтті жіберілді!');
-          document.getElementById('tgForm').reset();
-        } else {
-          alert('Қате пайда болды. Ботты тексеріңіз.');
-        }
-      } catch (error) {
-        alert('Желілік қателік орын алды.');
-      } finally {
-        btn.innerText = 'Өтінім жіберу';
-        btn.disabled = false;
-      }
-    });
-  </script>
 
 </body>
 </html>
