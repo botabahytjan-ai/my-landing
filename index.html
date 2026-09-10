@@ -45,7 +45,8 @@
       const name = document.getElementById('userName').value;
       const phone = document.getElementById('userPhone').value;
       
-      const token = '8696946789:AAEumfKYyf4BNT-bVahyiLZARrF6tqC0F98';
+      // Сіздің жаңа токеніңіз орнатылды
+      const token = '8696946789:AAF2-DSJ-GxDBq0D2dpghq5x4jdfI5qxQDM';
       const chatId = '515087783';
       
       const text = `🔔 **Жаңа өтінім!**\n\n👤 **Аты:** ${name}\n📞 **Телефон:** ${phone}`;
@@ -65,7 +66,7 @@
           alert('Өтінішіңіз сәтті жіберілді!');
           document.getElementById('tgForm').reset();
         } else {
-          alert('Қате пайда болды. Телеграм ботқа /start басқаныңызды тексеріңіз.');
+          alert('Қате пайда болды. Ботты тексеріңіз.');
         }
       } catch (error) {
         alert('Желілік қателік орын алды.');
