@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бизнеске арналған веб-сайт</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #38bdf8;
+        }
+        p {
+            color: #94a3b8;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background-color: #0f172a;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+        .input-field:focus {
+            border-color: #38bdf8;
+        }
+        .btn {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>AI Арқылы Бизнесті Дамыту</h1>
+        <p>Кеңес алу үшін атыңыз бен телефоныңызды қалдырыңыз:</p>
+        
+        <input type="text" id="userName" class="input-field" placeholder="Сіздің атыңыз">
+        <input type="tel" id="userPhone" class="input-field" placeholder="Телефон нөміріңіз">
+        
+        <button class="btn" onclick="sendForm()">Өтінім жіберу</button>
+    </div>
+
+    <script>
+        function sendForm() {
+            let name = document.getElementById('userName').value;
+            let phone = document.getElementById('userPhone').value;
+
+            if(name === '' || phone === '') {
+                alert('Өтініш, барлық өрісті толтырыңыз!');
+            } else {
+                alert('Рахмет, ' + name + '! Өтініміңіз қабылданды. Мен сізге жақында хабарласамын.');
+            }
+        }
+    </script>
+
+</body>
+</html>
