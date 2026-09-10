@@ -97,5 +97,35 @@
         }
     </script>
 
+<script>
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const inputs = form.querySelectorAll('input');
+      const name = inputs[0] ? inputs[0].value : 'Көрсетілмеген';
+      const phone = inputs[1] ? inputs[1].value : 'Көрсетілмеген';
+      
+      const token = '8696946789:AAEumfKYyf4BNT-bVahyiLZARrF6tqC0F98';
+      const chatId = '515087783';
+      
+      const message = `🔔 Жаңа өтінім!\n\n👤 Аты: ${name}\n📞 Телефон: ${phone}`;
+      
+      try {
+        await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: chatId, text: message })
+        });
+        alert('Өтінішіңіз сәтті жіберілді!');
+        form.reset();
+      } catch (err) {
+        alert('Қателік орын алды, қайтадан байқап көрсеңіз.');
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
